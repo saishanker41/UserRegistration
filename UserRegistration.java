@@ -33,6 +33,7 @@ public class UserRegistration {
     }
 
     public boolean validateEmail() {
+
         System.out.println("Enter Your Email");
         String email = scan.next();
         System.out.println("The email is: " + email);
@@ -42,12 +43,26 @@ public class UserRegistration {
         return matcher.matches();
     }
 
+    public boolean validateMobNum() {
+
+        System.out.println("Enter Your Mobile No.");
+        String number = scan.next();
+        System.out.println("The Mobile No is: " + number);
+        String regExp =  "^(\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})\\d{3}\\d{4}$";
+        Pattern pattern = Pattern.compile(regExp);
+        Matcher matcher = pattern.matcher(number);
+        return matcher.matches();
+
+    }
+
+
     public static void main(String[] args) {
 
         boolean result1 = new UserRegistration().validateUserData();
         boolean result2 = new UserRegistration().validateUserDataLastName();
         boolean result3 = new UserRegistration().validateEmail();
-        System.out.println(result3);
+        boolean result4 = new UserRegistration().validateMobNum();
+        System.out.println(result4);
     }
 
 
