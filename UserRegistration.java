@@ -55,6 +55,17 @@ public class UserRegistration {
 
     }
 
+    public boolean validPassword() {
+
+        System.out.println("Enter Your Password.");
+        String name = scan.next();
+        System.out.println("The Password is: " + name);
+        String regExp =  "^[A-Za-z0-9]{8,}$";
+        Pattern pattern = Pattern.compile(regExp);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
+
+    }
 
     public static void main(String[] args) {
 
@@ -62,7 +73,8 @@ public class UserRegistration {
         boolean result2 = new UserRegistration().validateUserDataLastName();
         boolean result3 = new UserRegistration().validateEmail();
         boolean result4 = new UserRegistration().validateMobNum();
-        System.out.println(result4);
+        boolean result5 = new UserRegistration().validPassword();
+        System.out.println(result5);
     }
 
 
