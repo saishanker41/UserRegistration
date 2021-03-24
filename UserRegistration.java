@@ -79,6 +79,17 @@ public class UserRegistration {
 
     }
 
+    public boolean validateAtleastOneNumber() {
+
+        System.out.println("Enter Your Password.");
+        String name = scan.next();
+        System.out.println("The Password is: " + name);
+        String regExp = "^(.*[A-Z]{1,}[0-9]{1,}[A-Za-z0-9]{6,})$";
+        Pattern pattern = Pattern.compile(regExp);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
+    }
+
     public static void main(String[] args) {
 
         boolean result1 = new UserRegistration().validateUserData();
@@ -87,8 +98,9 @@ public class UserRegistration {
         boolean result4 = new UserRegistration().validateMobNum();
         boolean result5 = new UserRegistration().validPassword();
         boolean result6 = new UserRegistration().passwordAtLeastOneUpperCase();
+        boolean result7 = new UserRegistration().validateAtleastOneNumber();
 
-        System.out.println(result6);
+        System.out.println(result7);
     }
 
 
